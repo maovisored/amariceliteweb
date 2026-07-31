@@ -826,21 +826,17 @@ body:not([data-mode]) #pest-services {
 }
 
 .trust-carousel {
-  position: relative;
+  display: grid;
   max-width: 800px;
   margin: 0 auto;
-  height: 200px;
 }
 
 .trust-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 40px 32px;
+  padding: clamp(20px, 5vw, 40px) clamp(0px, 4vw, 32px);
   color: #fff;
   opacity: 0;
   transform: translateY(30px);
@@ -856,13 +852,14 @@ body:not([data-mode]) #pest-services {
 
 .trust-item strong {
   display: block;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1;
+  font-size: clamp(2.1rem, 5.4vw, 4rem);
+  line-height: 1.05;
   font-weight: 700;
   color: #fff;
 }
 
 .trust-item .separator {
+  flex: 0 0 auto;
   width: 60px;
   height: 3px;
   background: #ff9500;
@@ -1823,7 +1820,6 @@ body[data-mode="pest"] .page-hero-bg-pest {
   .quick-actions,
   .service-grid,
   .process-steps,
-  .trust-band,
   .contact,
   .section-heading {
     grid-template-columns: 1fr 1fr;
@@ -1953,7 +1949,6 @@ body[data-mode="pest"] .page-hero-bg-pest {
   .section-heading,
   .service-grid,
   .process-steps,
-  .trust-band,
   .contact,
   .contact-form,
   .footer-main {
@@ -1964,8 +1959,8 @@ body[data-mode="pest"] .page-hero-bg-pest {
     min-height: 360px;
   }
 
-  .trust-band div {
-    min-height: 118px;
+  .trust-band {
+    padding: 56px 16px;
   }
 
   .cta-section {
