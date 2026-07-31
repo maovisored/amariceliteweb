@@ -149,15 +149,20 @@ function init() {
   const trustCarousel = document.querySelector(".trust-carousel");
   if (trustCarousel) {
     const trustItems = trustCarousel.querySelectorAll(".trust-item");
+    const trustTransitionMs = 450;
     let currentIndex = 0;
 
     function showNextTrustItem() {
-      trustItems[currentIndex].classList.remove("active");
+      const outgoing = trustItems[currentIndex];
+      outgoing.classList.remove("active");
+      outgoing.classList.add("leaving");
+      setTimeout(() => outgoing.classList.remove("leaving"), trustTransitionMs);
+
       currentIndex = (currentIndex + 1) % trustItems.length;
       trustItems[currentIndex].classList.add("active");
     }
 
-    setInterval(showNextTrustItem, 4000);
+    setInterval(showNextTrustItem, 2200);
   }
 
   // Search modal functionality
